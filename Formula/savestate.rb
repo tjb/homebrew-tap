@@ -25,6 +25,12 @@ class Savestate < Formula
     initialize = '{"jsonrpc":"2.0","id":1,"method":"initialize","params":' \
                  '{"protocolVersion":"2025-03-26","capabilities":{},' \
                  '"clientInfo":{"name":"brew","version":"1"}}}'
-    assert_match '"name":"savestate"', pipe_output("#{bin}/savestate mcp", "#{initialize}\n")
+    # Stdin stays open until the reply arrives, as it does with a real MCP client.
+    reply = IO.popen([bin/"savestate", "mcp"], "r+") do |server|
+      server.puts initialize
+      server.flush
+      server.gets
+    end
+    assert_match '"name":"savestate"', reply
   end
 end
