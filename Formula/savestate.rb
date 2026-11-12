@@ -1,8 +1,8 @@
 class Savestate < Formula
   desc "Mac CLI and MCP server that lets coding agents drive iOS app debug state"
   homepage "https://github.com/tjb/SaveState"
-  url "https://github.com/tjb/SaveState/archive/refs/tags/0.2.0.tar.gz"
-  sha256 "f7c560b2cc9a06320e51dd24db8b7a38f0e4fa785ce12ce4df1d8db582278db0"
+  url "https://github.com/tjb/SaveState/archive/refs/tags/0.2.1.tar.gz"
+  sha256 "9bd6d35f6c8120d99aa62be1435d7219bf656fb0a00536b68b7ca8ff8a78d441"
   license "MIT"
 
   depends_on xcode: ["26.0", :build]
